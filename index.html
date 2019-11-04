@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body style="width: 100vw; height: 100vh; margin: 0; overflow: hidden;">
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div style="float:left; height: 100%; overflow-wrap: break-word; border: 1px solid #3F3F3F; padding:5px" id="side-bar">
+            <h3>De Moivre's Theorem</h3>
+            <input id="n-input" type="number" style="width:50%">
+            <label for="n-input">n</label>
+            <p>where n is the exponent of x in x^n=1</p>
+            <button id="triangle-toggle" onclick="triangleT = (triangleT == true) ? false : true;">Triangle Toggle</button>
+        </div>
+        <canvas id="canvas" style="float: right; padding-right: 5px;"></canvas>
+        <script src="main.js"></script>
+    </body>
+</html>
