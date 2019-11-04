@@ -45,6 +45,7 @@ function draw() {
     ctx.clearRect(-w.w/2,-w.h/2,w.w,w.h);
     ctx.font = fontsize + "px Arial"
     ctx.strokeStyle = "black";
+    ctx.lineWidth = "3px";
     //clearly labels axes
     ctx.moveTo(0,-w.h/2);
     ctx.lineTo(0,w.h/2);
@@ -52,7 +53,7 @@ function draw() {
     ctx.moveTo(-w.w/2, 0);
     ctx.lineTo(w.w/2, 0)
     ctx.stroke();
-    for (let i=0;i < 2*scale.y; i++) {
+    for (let i=0;i <= 2*scale.y; i++) {
         let width = (-w.w/2) + (i*(w.w/(scale.x*2)));
         let height = (-w.h/2) + (i*(w.h/(scale.y*2)));
         if (width != 0) {
@@ -60,7 +61,7 @@ function draw() {
             ctx.lineTo(markL/2,height);
             ctx.stroke();
             ctx.scale(1,-1);
-            ctx.fillText((Math.abs(-scale.y + i) == 1) ? + (-scale.y + i > 0) ? "-i" : "i": -scale.y + i + "i",markL/2,height-5); // some arbitrary pixel shifts for aesthetic
+            ctx.fillText((Math.abs(-scale.y + i) == 1) ? + (-scale.y + i > 0) ? "-i" : "i": -scale.y + i + "i",markL/2,(height <= 0) ? height+fontsize : height - 5); // some arbitrary pixel shifts for aesthetic
             ctx.scale(1,-1);
         }
         ctx.moveTo(width, -markL/2);
@@ -69,8 +70,11 @@ function draw() {
         ctx.scale(1,-1);
         ctx.fillText(-scale.x + i,(width <= 0) ? width + 5 : width - 15, fontsize + 5); // some arbitrary pixel shifts for aesthetic
         ctx.scale(1,-1);
+        ctx.closePath();
     }
+    ctx.lineWidth = "1px";
     // draws unit circle
+    ctx.beginPath();
     ctx.arc(0,0,w.w/(scale.x*2),0,2*Math.PI)
     ctx.stroke();
     // plots points on unit circle
@@ -84,6 +88,7 @@ function draw() {
         ctx.fill();
         ctx.scale(1,-1);
         ctx.scale(1,-1);
+        ctx.lineWidth = "1px";
         if (triangleT == true && n != 2 && n!= 1) {
             ctx.beginPath();
             ctx.moveTo(0,0);

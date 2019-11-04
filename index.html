@@ -9,6 +9,7 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="manifest" href="manifest.json">
         <link rel="stylesheet" href="">
     </head>
     <body style="width: 100vw; height: 100vh; margin: 0; overflow: hidden;">
@@ -17,11 +18,11 @@
         <![endif]-->
         <div style="float:left; height: 100%; overflow-wrap: break-word; border: 1px solid #3F3F3F; padding:5px" id="side-bar">
             <h3>De Moivre's Theorem</h3>
-            <input id="n-input" type="number" style="width:50%">
+            <input id="n-input" type="number" style="width:50%" autocomplete="off" value="1">
             <label for="n-input">n</label>
             <p>n is the exponent of x in x^n=1.</p>
             </br>
-            <p>Solutions graphed in the complex plane to the right ---></p>
+            <p>Solutions graphed in the complex plane to the right --------></p>
             <button id="triangle-toggle" onclick="triangleT = (triangleT == true) ? false : true;">Triangle Toggle</button>
         </div>
         <canvas id="canvas" style="float: right; padding-right: 5px;"></canvas>
