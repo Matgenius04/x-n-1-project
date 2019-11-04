@@ -8,6 +8,7 @@ let n = 1; // x^n = 1 solutions
 const fps = 60;
 let fontsize = 20; // in px
 let triangleT = false;
+let label = false;
 
 function setup() {
     // sets up canvas
@@ -89,6 +90,15 @@ function draw() {
         ctx.scale(1,-1);
         ctx.scale(1,-1);
         ctx.lineWidth = "1px";
+        if (label == true) {
+            let relFontSize = fontsize - (Math.E*(n/100))
+            ctx.scale(1,-1);
+            ctx.font = `${relFontSize}px Arial`
+            ctx.fillText(`(${Math.cos(a).toFixed(3)}, ${Math.sin(a).toFixed(3)}i)`,
+            (Math.cos(a)*(w.w/(scale.x*2))>=0) ? Math.cos(a)*(w.w/(scale.x*2)): Math.cos(a)*(w.w/(scale.x*2)) - (7*relFontSize),
+            (Math.sin(a)*(w.w/(scale.x*2))>=0) ? Math.sin(a)*(w.w/(scale.x*2)) + (1.5 * relFontSize): Math.sin(a)*(w.w/(scale.x*2)) - (1.5 * relFontSize))
+            ctx.scale(1,-1);
+        }
         if (triangleT == true && n != 2 && n!= 1) {
             ctx.beginPath();
             ctx.moveTo(0,0);
