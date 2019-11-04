@@ -26,7 +26,10 @@
             <button id="triangle-toggle" onclick="triangleT = (triangleT == true) ? false : true;">Toggle Triangles</button>
             </br>
             <p>Labelling at high values of n is not recommended</p>
-            <button id="label" onclick="label = (label == true) ? false : true;">Toggle Labelling</button>
+            <button id="label-toggle" onclick="label = (label == true) ? false : true;">Toggle Labelling</button>
+            </br>
+            <button id="download-button" onclick="downloadImage()">Download Graph</button>
+            <a id="hidden-link" download="De-Moivre-Theorem-Image.png" hidden></a>
         </div>
         <canvas id="canvas" style="float: right; padding-right: 5px;"></canvas>
         <script src="main.js"></script>

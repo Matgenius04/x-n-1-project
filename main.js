@@ -103,21 +103,25 @@ function draw() {
             ctx.beginPath();
             ctx.moveTo(0,0);
             ctx.lineTo(Math.cos(a)*(w.w/(scale.x*2)),Math.sin(a)*(w.h/(scale.y*2)));
-            ctx.stroke();
-            ctx.beginPath();
-            ctx.moveTo(Math.cos(a)*(w.w/(scale.x*2)),Math.sin(a)*(w.h/(scale.y*2)))
             ctx.lineTo(Math.cos(a)*(w.w/(scale.x*2)),0);
-            ctx.closePath();
-            ctx.stroke();
-            let sign = (n%1 != 0) ? 1: -1;
-            ctx.strokeRect(
-                Math.cos(a)*(w.w/(scale.x*2)),
-                0,
-                sign * Math.sign(Math.cos(a)*(w.w/(scale.x*2)))*10,
-                sign * Math.sign(Math.sin(a)*(w.h/(scale.y*2)))*10
+            ctx.lineTo(0,0);
+            ctx.stroke()
+            if (Number(Math.cos(a).toFixed(13)) != 0 && Number(Math.sin(a).toFixed(13)) != 0) {
+                let sign = (n%1 != 0) ? 1: -1;
+                ctx.strokeRect(
+                    (Math.abs(Math.cos(a)) == 1 || Number(Math.cos(a).toPrecision(10)) == 0) ? 0: Math.cos(a)*(w.w/(scale.x*2)),
+                    0,
+                    sign * Math.sign(Math.cos(a)*(w.w/(scale.x*2)))*7.5,
+                    sign * Math.sign(Math.sin(a)*(w.h/(scale.y*2)))*7.5
                 )
+            }
         }
     }
+}
+
+function downloadImage() {
+    document.getElementById("hidden-link").setAttribute("href", `${c.toDataURL("image/png",1000)}`);
+    document.getElementById("hidden-link").click();
 }
 
 setup();
