@@ -122,11 +122,11 @@ function draw() {
         ctx.scale(1,-1);
         ctx.lineWidth = (1*res);
         if (label == true) {
-            let relFontSize = (fontsize * res) - ((Math.E*(n/100) < (fontsize * res - 3)) ? Math.E*(n/100) : (fontsize*res) - 3);
+            let relFontSize = (fontsize * res) - ((Math.E*(n/100) < ((fontsize * res) - 3)) ? Math.E*(n/100) : (fontsize*res) - 3);
             ctx.scale(1,-1);
             ctx.font = `${relFontSize}px Arial`
             ctx.fillText(`(${Math.cos(a).toFixed(3)}, ${Math.sin(a).toFixed(3)}i)`,
-            (Math.cos(a)*(w.w/(scale.x*2))>=0) ? Math.cos(a)*(w.w/(scale.x*2)): Math.cos(a)*(w.w/(scale.x*2)) - (6*relFontSize),
+            (Math.cos(a)*(w.w/(scale.x*2))>=0) ? 1.025 * Math.cos(a)*(w.w/(scale.x*2)): Math.cos(a)*(w.w/(scale.x*2)) - (6.75*relFontSize),
             (Math.sin(a)*(w.w/(scale.x*2))>=0) ? 1.05*(Math.sin(a)*(w.w/(scale.x*2)) + (1 * relFontSize)): 1.05*(Math.sin(a)*(w.w/(scale.x*2)) - (1 * relFontSize)))
             ctx.scale(1,-1);
         }
@@ -142,8 +142,8 @@ function draw() {
                 ctx.strokeRect(
                     (Math.abs(Math.cos(a)) == 1 || Number(Math.cos(a).toPrecision(10)) == 0) ? 0: Math.cos(a)*(w.w/(scale.x*2)),
                     0,
-                    sign * Math.sign(Math.cos(a)*(w.w/(scale.x*2)))*7.5,
-                    sign * Math.sign(Math.sin(a)*(w.h/(scale.y*2)))*7.5
+                    sign * Math.sign(Math.cos(a)*(w.w/(scale.x*2)))*7.5*res,
+                    sign * Math.sign(Math.sin(a)*(w.h/(scale.y*2)))*7.5*res
                 )
             }
         }
