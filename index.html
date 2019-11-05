@@ -10,7 +10,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="manifest" href="manifest.json">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="style.css">
     </head>
     <body style="width: 100vw; height: 100vh; margin: 0; overflow: hidden;">
         <!--[if lt IE 7]>
@@ -28,10 +28,23 @@
             <p>Labelling at high values of n is not recommended</p>
             <button id="label-toggle" onclick="label = (label == true) ? false : true;">Toggle Labelling</button>
             </br>
+            <button id="color-circle-toggle" onclick="circleT = (circleT == true) ? false : true;">Toggle Circle Division Color</button>
+            </br>
             <button id="download-button" onclick="downloadImage()">Download Graph</button>
+            <p style="float:bottom;">This terrible website was created by Matthew C.</p>
             <a id="hidden-link" download="De-Moivre-Theorem-Image.png" hidden></a>
+            </br>
+            <button id="record-button" onclick="record()">Record</button>
+            <div id="table" style="max-height:40%;max-width:100%;">
+            <table>
+                <tr>
+                    <th></th>
+                </tr>
+            </table>
+        </div>
         </div>
         <canvas id="canvas" style="float: right; padding-right: 5px;"></canvas>
+        <script src="CanvasRecorder.js"></script>
         <script src="main.js"></script>
     </body>
 </html>

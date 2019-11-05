@@ -1,0 +1,7 @@
+body {
+    background:  white;
+}
+#side-bar {
+    background: rgba(0,0,0,0.75);
+    color: rgb(230,230,230);
+}
