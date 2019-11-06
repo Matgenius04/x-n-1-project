@@ -88,7 +88,7 @@ function draw() {
         ctx.lineTo(width, markL/2);
         ctx.stroke();
         ctx.scale(1,-1);
-        ctx.fillText(-scale.x + i,(width <= 0) ? width + 5 : width - 15, (fontsize * res) + 5); // some arbitrary pixel shifts for aesthetic
+        ctx.fillText(-scale.x + i,(width <= 0) ? width + (5*res) : width - (15*res), (fontsize * res) + 5); // some arbitrary pixel shifts for aesthetic
         ctx.scale(1,-1);
         ctx.closePath();
     }
@@ -126,8 +126,8 @@ function draw() {
             ctx.scale(1,-1);
             ctx.font = `${relFontSize}px Arial`
             ctx.fillText(`(${Math.cos(a).toFixed(3)}, ${Math.sin(a).toFixed(3)}i)`,
-            (Math.cos(a)*(w.w/(scale.x*2))>=0) ? 1.025 * Math.cos(a)*(w.w/(scale.x*2)): Math.cos(a)*(w.w/(scale.x*2)) - (6.75*relFontSize),
-            (Math.sin(a)*(w.w/(scale.x*2))>=0) ? 1.05*(Math.sin(a)*(w.w/(scale.x*2)) + (1 * relFontSize)): 1.05*(Math.sin(a)*(w.w/(scale.x*2)) - (1 * relFontSize)))
+            (Math.cos(a)*(w.w/(scale.x*2))>=0) ? 1.0 * Math.cos(a)*(w.w/(scale.x*2)): Math.cos(a)*(w.w/(scale.x*2)) - (6.8*relFontSize),
+            (Math.sin(a)*(w.w/(scale.x*2))>=0) ? 1.0*(Math.sin(a)*(w.w/(scale.x*2)) + (1 * relFontSize)): 1.0*(Math.sin(a)*(w.w/(scale.x*2)) - (1 * relFontSize)))
             ctx.scale(1,-1);
         }
         if (triangleT == true && n != 2 && n!= 1) {
