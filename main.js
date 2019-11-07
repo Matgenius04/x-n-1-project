@@ -126,7 +126,7 @@ function draw() {
             ctx.scale(1,-1);
             ctx.font = `${relFontSize}px Arial`
             ctx.fillText(`(${Math.cos(a).toFixed(3)}, ${Math.sin(-a).toFixed(3)}i)`, // -a because the weird canvas scaling I had to do
-            (Math.cos(a)*(w.w/(scale.x*2))>=0) ? 1.0 * Math.cos(a)*(w.w/(scale.x*2)): Math.cos(a)*(w.w/(scale.x*2)) - (6.8*relFontSize),
+            (Math.cos(a)*(w.w/(scale.x*2))>=0) ? 1.0 * Math.cos(a)*(w.w/(scale.x*2)): Math.cos(a)*(w.w/(scale.x*2)) - (7*relFontSize),
             (Math.sin(a)*(w.w/(scale.x*2))>=0) ? 1.0*(Math.sin(a)*(w.w/(scale.x*2)) + (1 * relFontSize)): 1.0*(Math.sin(a)*(w.w/(scale.x*2)) - (1 * relFontSize)))
             ctx.scale(1,-1);
         }
